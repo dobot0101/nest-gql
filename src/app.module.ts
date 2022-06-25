@@ -4,6 +4,10 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { UserResolver } from './modules/user/user.resolver';
+import { TweetResolver } from './modules/tweet/tweet.resolver';
+import { UserService } from './modules/user/user.service';
+import { TweetService } from './modules/tweet/tweet.service';
 
 @Module({
   imports: [
@@ -16,6 +20,12 @@ import { AppService } from './app.service';
     }),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    UserResolver,
+    TweetResolver,
+    UserService,
+    TweetService,
+  ],
 })
 export class AppModule {}
