@@ -9,7 +9,12 @@ type Query {
   tweet(id: ID!): Tweet
 }
 
+input PostTweetInput {
+  userId: ID!
+  text: String!
+}
+
 type Mutation {
-  postTweet(text: String!, userId: ID!): Tweet!
+  postTweet(input: PostTweetInput!): Tweet!
   deleteTweet(id: ID!): ID!
 }

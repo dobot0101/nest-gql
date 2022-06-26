@@ -4,10 +4,8 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UserResolver } from './modules/user/user.resolver';
-import { TweetResolver } from './modules/tweet/tweet.resolver';
-import { UserService } from './modules/user/user.service';
-import { TweetService } from './modules/tweet/tweet.service';
+import { TweetModule } from './tweet/tweet.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -18,14 +16,10 @@ import { TweetService } from './modules/tweet/tweet.service';
         path: join(process.cwd(), 'src/graphql.ts'),
       },
     }),
+    UserModule,
+    TweetModule,
   ],
   controllers: [AppController],
-  providers: [
-    AppService,
-    UserResolver,
-    TweetResolver,
-    UserService,
-    TweetService,
-  ],
+  providers: [AppService],
 })
 export class AppModule {}

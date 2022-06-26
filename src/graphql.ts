@@ -7,6 +7,11 @@
 
 /* tslint:disable */
 /* eslint-disable */
+export interface PostTweetInput {
+    userId: string;
+    text: string;
+}
+
 export interface Tweet {
     id: string;
     text: string;
@@ -21,7 +26,7 @@ export interface IQuery {
 }
 
 export interface IMutation {
-    postTweet(text: string, userId: string): Tweet | Promise<Tweet>;
+    postTweet(input: PostTweetInput): Tweet | Promise<Tweet>;
     deleteTweet(id: string): string | Promise<string>;
 }
 

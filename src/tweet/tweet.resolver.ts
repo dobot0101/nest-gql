@@ -6,7 +6,7 @@ import {
   ResolveField,
   Resolver,
 } from '@nestjs/graphql';
-import { UserService } from '../user/user.service';
+import { UserService } from 'src/user/user.service';
 import { TweetService } from './tweet.service';
 
 @Resolver('Tweet')
